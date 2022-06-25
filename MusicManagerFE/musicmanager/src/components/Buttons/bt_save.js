@@ -11,7 +11,7 @@ const buttonSave = (lang, setStateWhenPlay, currentSong, setCurrentSong, func, u
         if (updateName !== null || updateGenre !== null) {
             let currentTime = new Date()
             var time = currentTime.getFullYear()
-                + "-" + currentTime.getMonth()+1
+                + "-" + (currentTime.getMonth()+1)
                 + "-" + currentTime.getDate()
                 + " " + currentTime.getHours()
                 + ":" + currentTime.getMinutes()

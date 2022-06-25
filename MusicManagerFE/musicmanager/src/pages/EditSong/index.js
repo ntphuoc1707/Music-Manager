@@ -11,7 +11,7 @@ function EditSong(props) {
     var username=context.username
     const navigate=useNavigate();
 
-    const edit_infor = (<React.Fragment>
+    const edit_infor = (<>
         <div className="input-group input-group-sm mb-3">
             <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-sm">{language[lang][5]}</span>
@@ -25,10 +25,10 @@ function EditSong(props) {
             <input text={props.currentSong.genre} placeholder={props.currentSong.genre} id='updateGenre' type="text" className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></input>
         </div>
 
-    </React.Fragment>)
+    </>)
 
     return (
-        <React.Fragment>
+        <>
             <div style={{ border: 3, borderStyle: "solid", marginTop: "15px", padding: 0 }}>
 
                 <div className='row'>
@@ -51,7 +51,7 @@ function EditSong(props) {
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </>
     );
 }
 

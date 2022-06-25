@@ -12,7 +12,7 @@ function CreateSelectItemTag(props) {
 
 function listMusic(lang, songs, checked, setChecked, checkedAll, setCheckedAll, setCurrentSong, navigate) {
     return (
-        (<React.Fragment>
+        (<>
             <div className="tableFixHead" style={{ overflowY: "auto", maxHeight: "400px", padding: 0 }} >
                 <table className="table_data" style={{ width: '100%', scrollY: "200px", "scrollCollapse": true, }}>
                     <thead>
@@ -119,7 +119,7 @@ function listMusic(lang, songs, checked, setChecked, checkedAll, setCheckedAll, 
                 }
             </div>
 
-        </React.Fragment>)
+        </>)
     );
 }
 

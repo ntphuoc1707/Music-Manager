@@ -18,23 +18,19 @@ const buttonAdd = ((e, lang, fileMusic, username, navigate) => (<button
             if (create_announce('add', fileMusic)) {
                 let currentTime = new Date()
                 var time = currentTime.getFullYear()
-                    + "-" + currentTime.getMonth()+1
+                    + "-" + (currentTime.getMonth()+1)
                     + "-" + (currentTime.getDate())
                     + " " + currentTime.getHours()
                     + ":" + currentTime.getMinutes()
                     + ":" + currentTime.getSeconds()
                 var formData = new FormData();
-                var newSong={
-                    name: document.querySelector("#nameSong").value,
-                    genre: document.querySelector("#genreSong").value,
-                    updateTime: time,
-                }
+
                 formData.append("name", document.querySelector("#nameSong").value)
                 formData.append("genre", document.querySelector("#genreSong").value)
                 formData.append("file", fileMusic);
                 formData.append("updateTime", time)
                 formData.append("username", username)
-               //formData.append("song", newSong)
+               
                 console.log(formData)
                 axios.post(localhost + '/add', formData)
                     .then(res => {

@@ -1,7 +1,7 @@
 import { language, localhost } from '../../res'
 import axios from 'axios'
 
-const buttonLogin = (lang, setUsername, setToken, setCondition, navigate) => (
+const buttonLogin = (lang, setUsername, setToken, setCondition,setAccuracy, navigate) => (
     <button
         className="btn btn-outline-light btn-lg px-5"
         type="submit"
@@ -14,14 +14,16 @@ const buttonLogin = (lang, setUsername, setToken, setCondition, navigate) => (
             axios.post(localhost+'/login', formData)
                 .then((res) => {
                     console.log(res)
-                    if (!res.data.status) {
+                    if (!res.data.data) {
                         setCondition(false)
                     }
                     else {
                         setUsername(username)
                         setToken(res.data.data)
+                        setAccuracy(true)
+                        localStorage.setItem("token",res.data.data)
+                        localStorage.setItem("username", username)
                         navigate('/home')
-                        
                     }
                 })
         }}

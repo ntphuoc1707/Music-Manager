@@ -7,14 +7,13 @@ const buttonLogout = (lang, username, token) => (<button
     data-toggle="modal" data-target="#exampleModalCenter"
     style={{ float: 'right', marginLeft: '5px' }}
     onClick={() => {
-        
         var formData = new FormData();
         formData.append("username", username)
         formData.append("token", token)
-        axios.post(localhost+'/logout', formData)
+        axios.post(localhost + '/logout', formData)
             .then((res) => {
-               window.location.assign('/login')
-               
+                localStorage.clear()
+                window.location.assign('/login')
             })
 
     }}

@@ -11,31 +11,39 @@ const buttonSave = (lang, setStateWhenPlay, currentSong, setCurrentSong, func, u
         if (updateName !== null || updateGenre !== null) {
             let currentTime = new Date()
             var time = currentTime.getFullYear()
-                + "-" + (currentTime.getMonth()+1)
+                + "-" + (currentTime.getMonth() + 1)
                 + "-" + currentTime.getDate()
                 + " " + currentTime.getHours()
                 + ":" + currentTime.getMinutes()
                 + ":" + currentTime.getSeconds()
             var temp = {
+                id: currentSong.id,
                 name: document.getElementById('updateName').value
-                    || currentSong.name,
-                genre: document.getElementById('updateGenre').value
-                    || currentSong.genre,
+                    || currentSong.name, genre: document.getElementById('updateGenre').value
+                        || currentSong.genre,
                 updateTime: time
             }
 
-            axios.put(localhost + '/update/' + currentSong.id, temp)
+            var formData = new FormData();
+            formData.append("name", temp.name)
+            formData.append("genre", temp.genre)
+            formData.append("updateTime", time)
+            formData.append("username", username)
+
+            axios.put(localhost+'/update/' + currentSong.id, formData)
                 .then((res) => {
                     console.log(res)
                     if (func === 'playSong') {
                         setCurrentSong(temp)
+                        localStorage.setItem("currentSong", JSON.stringify(temp))
                         setStateWhenPlay(true)
                     }
                     else {
+                        localStorage.setItem("currentSong", JSON.stringify(temp))
                         setCurrentSong(temp)
                         navigate('/home')
                     }
-
+                    
                 })
 
         }
@@ -48,4 +56,3 @@ const buttonSave = (lang, setStateWhenPlay, currentSong, setCurrentSong, func, u
     {language[lang][16]}
 </button>)
 export default buttonSave
-

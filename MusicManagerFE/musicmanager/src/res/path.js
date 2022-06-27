@@ -1,10 +1,10 @@
 const path={
-    HOME: "/home",
+    HOME: "home",
     LOGIN: "login",
-    SIGNUP: "/signup",
-    EDITSONG: "/editSong",
-    PLAYSONG: "/playSong",
-    ADDSONG: "/addSong"
+    SIGNUP: "signup",
+    EDITSONG: "editSong",
+    PLAYSONG: "playSong",
+    ADDSONG: "addSong"
 }
 
 export default path

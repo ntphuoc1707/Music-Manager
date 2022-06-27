@@ -40,7 +40,7 @@ function PlaySong(props) {
                 var p = window.URL.createObjectURL(blob);
                 setUrl(p);
             })
-    })
+    },[])
     unedited_infor = (<>
         <label style={{ margin: "10px", fontSize: "15px" }}>
             <b>

@@ -11,11 +11,12 @@ function Navbar(props) {
     const lang=context.lang
     const username=context.username
     const token=context.token
+    const accuracy=context.accuracy
     return (
         <div className="container">
             <div className="row">
                 <div style={{ margin: "20px" }}>
-                    {username!==''&&buttonLogout(lang, username, token)}
+                    {accuracy&&buttonLogout(lang, username, token)}
                     <select
                         onChange={(e) => {props.setLanguage(e.target.value)}}
                         style={{ float: "right", width: "fit-content" }}
@@ -30,8 +31,8 @@ function Navbar(props) {
                             })
                         }
                     </select>
-                    <h2 id="heading" style={{ "marginLeft": "10px", float: "right" }}>{username} {username!==''&& '|'} {language[lang][1]}:</h2>
-                    {username !== '' && <img
+                    <h2 id="heading" style={{ "marginLeft": "10px", float: "right" }}>{accuracy&&username} {accuracy&& '|'} {language[lang][1]}:</h2>
+                    {accuracy && <img
                         style={{ float: "right" }}
                         src="https://rgl.mobi/IFScD"
                         alt="avatar" srcSet=""

@@ -5,6 +5,7 @@ const buttonBack = (lang, navigate) => (
         id='button_back'
         data-toggle="modal" data-target="#exampleModalCenter"
         onClick={() => {
+            localStorage.removeItem("currentSong")
             navigate(-1)
         }}
         className="btn btn-outline-success"

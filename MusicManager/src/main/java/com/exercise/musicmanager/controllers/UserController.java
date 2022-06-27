@@ -15,6 +15,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class UserController {
     @Autowired
@@ -64,6 +66,16 @@ public class UserController {
 //        return ResponseEntity.status(HttpStatus.OK).body(
 //                new Result("no", false, "Account already exist")
 //        );
+    }
+
+    @CrossOrigin
+    @ResponseBody
+    @RequestMapping(value = "/validateToken", method = RequestMethod.POST)
+    public ResponseEntity<Result> findUserByToken(@RequestParam("token") String token){
+        Optional result=userDAO.findByToken(token);
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new Result(!result.isEmpty()?true:false,result.get(),"Validate token")
+        );
     }
 
     @CrossOrigin

@@ -9,7 +9,6 @@ const buttonDelete = ((tag, lang, songs, checked, setChecked, toggle, setToggle,
     data-toggle="modal" data-target="#exampleModalCenter"
     onClick={() => {
         if (checked.length > 0) {
-            console.log(localhost + '/delete/' + checked)
             axios.delete(localhost + '/delete/' + checked)
                 .then(res => {
                     console.log(res)

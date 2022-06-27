@@ -45,7 +45,7 @@ function Login(props) {
                                 <p className="small mb-5 pb-lg-2"><a className="text-white-50" href="#!">{language[lang][26]}</a></p>
 
 
-                                {buttonLogin(lang, props.setUsername, props.setToken, setCondition, navigate)}
+                                {buttonLogin(lang, props.setUsername, props.setToken, setCondition, props.setAccuracy, navigate)}
 
 
 

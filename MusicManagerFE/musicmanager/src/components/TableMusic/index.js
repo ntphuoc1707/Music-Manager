@@ -84,6 +84,7 @@ function listMusic(lang, songs, checked, setChecked, checkedAll, setCheckedAll, 
                                             key={'play' + index}
                                             onClick={() => {
                                                 setCurrentSong(e)
+                                                localStorage.setItem("currentSong", JSON.stringify(e))
                                                 navigate('/playSong')
                                             }
                                             }
@@ -96,6 +97,7 @@ function listMusic(lang, songs, checked, setChecked, checkedAll, setCheckedAll, 
                                             key={'edit' + index}
                                             onClick={() => {
                                                 setCurrentSong(e)
+                                                localStorage.setItem("currentSong", JSON.stringify(e))
                                                 navigate('/editSong')
                                             }}
                                             className="btn btn-outline-success"

@@ -41,6 +41,7 @@ function App() {
     <Context.Provider value={{ lang: lang, username: username, token: token, accuracy: accuracy }}>
       <Routes>
         <Route path='/' element={<Header setLanguage={setLanguage} />}>
+          <Route path='' element={<NoPage/>}/>
           <Route path={path.LOGIN} element={
             <Login
               setUsername={setUsername}

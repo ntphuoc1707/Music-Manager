@@ -4,7 +4,8 @@ const path={
     SIGNUP: "signup",
     EDITSONG: "editSong",
     PLAYSONG: "playSong",
-    ADDSONG: "addSong"
+    ADDSONG: "addSong",
+    NONE: ""
 }
 
 export default path
